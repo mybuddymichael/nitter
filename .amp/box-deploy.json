@@ -3,7 +3,8 @@
     "default": {
       "on": "hnsn/box",
       "name": "nitter-rss",
-      "branch": "rss-box"
+      "branch": "rss-box",
+      "domain": "ntr.amp.michaelhanson.org"
     }
   }
 }

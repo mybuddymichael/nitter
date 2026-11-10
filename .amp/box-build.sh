@@ -20,6 +20,9 @@ mkdir -p box-runtime
 cp "$build_dir/redis-7.2.17/src/redis-server" box-runtime/
 cp "$build_dir/redis-7.2.17/COPYING" box-runtime/REDIS-LICENSE
 
+# Diagnose saved sessions on the Box without installing a compiler there.
+nim c -d:release --mm:refc --path:src --out:box-runtime/test-sessions tools/test_sessions.nim
+
 # Nim loads PCRE dynamically. The Box provides glibc, OpenSSL, and Python.
 cp -L "$(gcc -print-file-name=libpcre.so.3)" box-runtime/libpcre.so.3
 cp /usr/share/doc/libpcre3/copyright box-runtime/PCRE-LICENSE
