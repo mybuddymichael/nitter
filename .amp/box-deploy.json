@@ -1,0 +1,9 @@
+{
+  "targets": {
+    "default": {
+      "on": "hnsn/box",
+      "name": "nitter-rss",
+      "branch": "rss-box"
+    }
+  }
+}
