@@ -18,3 +18,9 @@ dump.rdb
 nimbledeps/
 nimble.paths
 nimble.develop
+allowed-users.txt
+box-runtime/
+.venv/
+__pycache__/
+.amp/in/
+.amp/portals/

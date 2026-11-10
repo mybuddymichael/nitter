@@ -1,0 +1,19 @@
+build: bash .amp/box-build.sh
+source: false
+artifacts:
+  - nitter
+  - public
+  - rss_proxy.py
+  - box-runtime
+  - .amp/box-backend.py
+  - LICENSE
+services:
+  redis:
+    command: ./box-runtime/redis-server --bind 127.0.0.1 --port 16379 --save "" --appendonly no
+  backend:
+    command: python3 .amp/box-backend.py
+  feed:
+    command: ALLOWLIST="$AMP_DEPLOYMENT_DATA_DIRECTORY/allowed-users.txt" exec python3 rss_proxy.py
+    env:
+      LISTEN_HOST: "0.0.0.0"
+      NITTER_PORT: "18080"
